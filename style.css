@@ -8,3 +8,12 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     position: sticky;
 }
+
+a:link, a:visited{
+    color: white;
+    text-decoration: none;
+}
+
+a:hover{
+    color: lightblue;
+}
