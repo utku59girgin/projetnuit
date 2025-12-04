@@ -186,8 +186,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (score === questions.length) {
             conseilText.innerText = "Excellent ! Tu es prêt à mener la résistance numérique.";
-        } else if (score > 0) {
+        } else if (score > 0 && score <= 4) {
             conseilText.innerText = "Bien joué ! Tu as de bonnes bases, mais quelques vieux réflexes persistent.";
+        } else if (score > 4) {
+            conseilText.innerText = "Pas mal ! Tu commences à comprendre les enjeux du logiciel libre.";
         } else {
             conseilText.innerText = "Oups ! Goliath te tient encore. Commence par installer Firefox aujourd'hui.";
         }
