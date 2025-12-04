@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/retrostyle.css">
     <script src="../script.js" defer></script>
 </head>
 <body>
@@ -19,6 +19,7 @@
             </ul>
         </div>
     </div>
+    <!--
 <hr>
 <div id="contenu">
     <div id="contact">
@@ -36,7 +37,89 @@
     <button type="submit">Envoyer</button>
 </form>
     </div>
-</div>
+</div>-->
+
+<main class="stage">
+  <header class="header">
+    <div class="logo">
+      <div class="masc">🪄</div>
+      <div>
+        <h1>Le Formulaire de la Gloire</h1>
+        <div class="subtitle">Remplis le rituel. Reçois — peut-être — la carte Illicado !</div>
+      </div>
+    </div>
+    <div class="tiny">🏆 1 gagnant — 15€</div>
+  </header>
+
+  <section class="arena">
+    <aside class="lore card">
+      <h2>Rituels et règles</h2>
+      <p>Nom, Email, Sujet, Message — c’est tout. Mais ici, chaque champ est une épreuve !</p>
+      <div class="note">Touche fun : tape des mots clés dans le sujet/message (ex: <kbd>gloire</kbd>, <kbd>potion</kbd>, <kbd>serieux</kbd>)</div>
+      <div class="gaugeWrap">
+        <label>Courage Numérique</label>
+        <div class="gauge"><div id="gaugeBar"></div></div>
+      </div>
+      <div class="badges" id="badges"></div>
+    </aside>
+
+    <form id="gloryForm" class="card form" autocomplete="off" novalidate>
+      <div class="field">
+        <label for="name">Nom</label>
+        <input id="name" name="name" placeholder="Ton nom de héros" required>
+        <div class="hint" id="hintName">Déclare ton nom, noble résistant·e !</div>
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="exemple@ecole.fr" required>
+        <div class="hint" id="hintEmail">Le parchemin doit être lisible par nos hiboux.</div>
+      </div>
+
+      <div class="field row">
+        <div style="flex:1">
+          <label for="subject">Sujet</label>
+          <input id="subject" name="subject" placeholder="Choisis ta quête" required>
+        </div>
+
+          <button id="spinSubject" type="button" class="tinyBtn" title="Roulette de quête">🎡</button>
+      </div>
+
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6" placeholder="Écris ton message au conseil..." required></textarea>
+        <div class="hint" id="hintMessage">Prends ton temps : la potion se prépare.</div>
+      </div>
+
+      <div class="field actions">
+        <div class="left-helpers small">Envoyé via : <span id="backendLabel">Simu</span></div>
+        <div class="right-helpers">
+          <button id="sendBtn" class="btn">Envoyer la missive</button>
+        </div>
+      </div>
+
+      <div class="field small muted">Les ressources sont libres. Licence MIT.</div>
+    </form>
+  </section>
+
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modalCard">
+      <div id="modalContent" class="modalContent">
+        <!-- contenu injecté -->
+      </div>
+      <div class="modalActions">
+        <button id="modalOk" class="btn">OK</button>
+        <button id="modalShare" class="btn ghost">Partager</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- confetti container -->
+  <div id="confetti"></div>
+
+  <footer class="footer">Prototype — Remplace l'endpoint pour envoyer réellement (ex: Formspree).</footer>
+</main>
+
 
 <div id="pied">
     <hr>
