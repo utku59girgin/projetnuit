@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+.vt323-regular {
+  font-family: "VT323", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
 :root{
   --bg:#0f1724;
  --card:#0b1220; 
@@ -8,10 +17,10 @@
 *{
     box-sizing:border-box;
 }
-.body{
+body{
     height:100%;
     margin:0;
-    font-family:Inter, "Segoe UI", Roboto, Arial;
+    font-family: 'VT323', monospace;
     color:#e6eef6;
     background:radial-gradient(800px 400px at 10% 10%, rgba(45,60,80,0.35), transparent),linear-gradient(180deg,#071027,#08121a);
    -webkit-font-smoothing:antialiased
