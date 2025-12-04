@@ -5,8 +5,6 @@
   font-weight: 400;
   font-style: normal;
 }
-
-
 :root{
   --bg:#0f1724;
  --card:#0b1220; 
@@ -259,3 +257,47 @@ body{
   .arena{grid-template-columns:1fr;align-items:start}
   .masc{display:none}
 }
+
+/* ======== MODULE FUN ALIEN — COURT ======== */
+
+/* Fade-in/out utilisé pour les messages aliens */
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(10px); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; }
+    100% { opacity: 0; transform: translateY(10px); }
+}
+
+/* Alien qui traverse (douce vibration spatiale) */
+@keyframes alienFloat {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(5deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+body div[style*="font-size: 40px"] {
+    animation: alienFloat 1.5s infinite ease-in-out;
+}
+
+/* Effet de "scan laser" quand on clique sur Envoyer */
+#sendBtn:active {
+    box-shadow: 0 0 10px #00ffa5, 0 0 20px #00ffa5 inset;
+    transform: scale(0.96);
+}
+
+/* Thème arcade si le Konami code est activé (JS change le body) */
+body[style*="hue-rotate"] * {
+    text-shadow: 0 0 4px #0ff;
+}
+
+/* Légère ambiance sci-fi sur les inputs */
+input, textarea {
+    border: 1px solid rgba(0,255,170,0.2);
+    transition: 0.2s ease;
+}
+
+input:focus, textarea:focus {
+    border-color: #00ffaa;
+    box-shadow: 0 0 6px #00ffaa77;
+}
+

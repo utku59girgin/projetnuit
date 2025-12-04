@@ -197,3 +197,86 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
+
+/* ========== MODULE FUN ALIEN + GAME ==========
+===============================================*/
+
+// 1) Mini Alien qui traverse l'écran une fois
+function spawnAlien() {
+  const alien = document.createElement("div");
+  alien.textContent = "👽";
+  alien.style.position = "fixed";
+  alien.style.left = "-50px";
+  alien.style.top = Math.random() * 60 + "%";
+  alien.style.fontSize = "40px";
+  alien.style.transition = "left 4s linear";
+  alien.style.zIndex = "9999";
+
+  document.body.appendChild(alien);
+
+  setTimeout(() => alien.style.left = "110%");
+
+  // suppression après passage
+  setTimeout(() => alien.remove(), 5000);
+}
+
+// apparaît une seule fois, 3 sec après arrivée sur la page
+setTimeout(spawnAlien, 3000);
+
+
+// 2) Mot-clé secret : si l'utilisateur écrit "alien", "ovni", "ufo"
+const cosmicWords = ["alien", "ovni", "ufo", "extraterrestre"];
+
+document.getElementById("message").addEventListener("input", (e) => {
+  const val = e.target.value.toLowerCase();
+  if (cosmicWords.some(w => val.includes(w))) {
+    showAlienHint();
+  }
+});
+
+function showAlienHint() {
+  const hint = document.createElement("div");
+  hint.textContent = "🛸 Message détecté… Transmission intergalactique en cours.";
+  hint.style.position = "fixed";
+  hint.style.bottom = "20px";
+  hint.style.right = "20px";
+  hint.style.padding = "10px 15px";
+  hint.style.background = "rgba(0,255,170,0.25)";
+  hint.style.border = "1px solid #0fa";
+  hint.style.borderRadius = "8px";
+  hint.style.backdropFilter = "blur(4px)";
+  hint.style.zIndex = "9999";
+  hint.style.animation = "fadeInOut 4s ease";
+
+  document.body.appendChild(hint);
+  setTimeout(() => hint.remove(), 4000);
+}
+
+
+// 3) Effet arcade si on tape ↑ ↑ ↓ ↓ ← → ← → B A
+const konami = [];
+const secret = ["ArrowUp","ArrowUp","ArrowDown","ArrowDown","ArrowLeft","ArrowRight","ArrowLeft","ArrowRight","b","a"];
+
+window.addEventListener("keydown", (e) => {
+  konami.push(e.key);
+  if (konami.join("").includes(secret.join(""))) {
+    activateArcadeMode();
+  }
+  if (konami.length > secret.length) konami.shift();
+});
+
+function activateArcadeMode() {
+  document.body.style.transition = "0.4s";
+  document.body.style.filter = "hue-rotate(120deg)";
+  document.body.style.background = "#001f2e url('https://i.gifer.com/7VE.gif') repeat";
+  alert("👾 MODE ARCADE ALIEN ACTIVÉ !");
+}
+
+
+// 4) bruit de scan au clic sur “Envoyer”
+document.getElementById("sendBtn").addEventListener("click", () => {
+  const audio = new Audio("https://cdn.pixabay.com/download/audio/2021/08/04/audio_7e01ef2f85.mp3?filename=scan-90697.mp3");
+  audio.volume = 0.4;
+  audio.play();
+});
