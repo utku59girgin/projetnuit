@@ -86,3 +86,9 @@ a:hover{
     text-decoration: underline;
     color: #3B82F6;
 }
+
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', 'Roboto', 'Arial',sans-serif;
+}
