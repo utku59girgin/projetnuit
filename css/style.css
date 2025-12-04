@@ -88,7 +88,36 @@ a:hover{
 }
 
 body {
-    background-color: #121212;
-    color: #e0e0e0;
+    font-family: var(--font-main);
+    background-color: var(--light);
+    color: var(--dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+.contenu {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.maincontenu {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background: radial-gradient(circle at top right, rgba(16, 185, 129, 0.1), transparent 40%),
+                radial-gradient(circle at bottom left, rgba(37, 99, 235, 0.1), transparent 40%);
     font-family: 'Segoe UI', 'Roboto', 'Arial',sans-serif;
+}
+
+.btn {
+    display: inline-block;
+    background: lightblue
+}
+
+.mission-statement {
+    display: flex;
+    align-items: flex-end;
+    font-size: 1.2rem;
+    margin: 20px 0;
+    color: #333;
 }
