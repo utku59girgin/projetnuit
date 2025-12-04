@@ -9,6 +9,11 @@
     position: sticky;
 }
 
+.navbar-brand{
+    width: 100px;
+    height: 100px;;
+}
+
 .navbar-nav {
     display: flex;
     align-items: center;
