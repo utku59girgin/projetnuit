@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz : Ta Résistance Numérique</title>
+    <link rel="stylesheet" href="../css/quiz-style.css">
+    <script src="../script.js" defer></script>
+</head>
+<body>
+
+    <div class="container">
+        <div id="start-screen" class="screen">
+            <h1>Test de Résistance Numérique</h1>
+            <p>Es-tu un esclave de la Tech ou un héros du Libre ?</p>
+            <button id="start-btn" class="btn">Commencer le Rituel</button>
+        </div>
+
+        <div id="quiz-screen" class="screen hide">
+            <div class="progress-bar">
+                <div id="progress" class="progress-fill"></div>
+            </div>
+            
+            <h2 id="question">Question text here</h2>
+            <div id="answer-buttons" class="btn-grid">
+            </div>
+        </div>
+
+        <div id="result-screen" class="screen hide">
+            <h2>Résultat de l'analyse</h2>
+            <div class="score-display">
+                Score: <span id="score">0</span> / <span id="total-questions">0</span>
+            </div>
+            
+            <div class="conseil-box">
+                <h3>💡 Le Conseil des Sages :</h3>
+                <p id="conseil-text">Texte du conseil...</p>
+            </div>
+
+            <button id="restart-btn" class="btn">Recommencer</button>
+            <a href="../index.html" class="btn btn-outline">Retour à l'accueil</a>
+        </div>
+    </div>
+</body>
+</html>
