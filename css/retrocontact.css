@@ -22,7 +22,7 @@ body{
     margin:0;
     font-family: 'VT323', monospace;
     color:#e6eef6;
-    background:radial-gradient(800px 400px at 10% 10%, rgba(45,60,80,0.35), transparent),linear-gradient(180deg,#071027,#08121a);
+    background:radial-gradient(800px 400px at 10% 10%, rgba(66, 87, 114, 0.35), transparent),linear-gradient(180deg,#0b1734,#193043);
    -webkit-font-smoothing:antialiased
 }
 .stage{
