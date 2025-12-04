@@ -12,6 +12,7 @@
         <a href="#" class="navbar-brand">Site</a>
         <ul class="navbar-nav">
             <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="page/logiciels.html" class="nav-link">Logiciels Libres</a></li>
         </ul>
     </nav>
 
@@ -24,45 +25,90 @@
             <h1>Reprenons le pouvoir<br>sur le numérique.</h1>
             
             <div class="mission-statement">
-                <p>test</p>
+                <p>Êtes-vous libre?</p>
             </div>
 
             <div class="btn-group" style="margin-top: 2rem;">
-                <a href="#start" class="btn btn-primary">Commencer l'aventure</a>
-                <a href="#learn" class="btn btn-outline">En savoir plus</a>
+                <button id="open-quiz-btn" class="btn btn-primary">Commencer l'aventure</button>
+                <a href="#learn" class="btn btn-primary">En savoir plus</a>
             </div>
         </div>
     </header>
 
 <section id="apprendre" class="bg-surface">
+<<<<<<< HEAD
     <div class="container">
         <div class="section-header">
             <span class="tagline">TAGLINE</span>
             <h2>H2</h2>
             <p>TEST .</p>
         </div>
+=======
+    <div class="section-header">
+        <span class="tagline">POURQUOI CHANGER ?</span>
+        <h2>Sortez de la Matrice</h2>
+        <p>Le numérique actuel nous enferme dans des cages dorées. Voici trois bonnes raisons de scier les barreaux.</p>
+    </div>
+>>>>>>> 87b3d5a297014e1d11d57ec272d3dea5f71281c0
         
         <div class="grid-3">
             <div class="card">
-                <div class="card-icon">🤝</div>
-                <h3>H3</h3>
-                <p>TEST2</p>
-            </div>
+                    <div class="card-icon">🧠</div>
+                    <h3>Pour vos Enfants</h3>
+                    <p>L'école ne doit pas former des consommateurs d'iPad, mais des créateurs. Apprenez-leur à coder et à comprendre l'outil, pas juste à scroller.</p>
+                </div>
             
             <div class="card">
-                <div class="card-icon">🛡️</div>
-                <h3>H3</h3>
-                <p>TEST4</p>
-            </div>
+                    <div class="card-icon">👁️</div> <!-- Changed icon to Eye -->
+                    <h3>Vie Privée</h3>
+                    <p>Si c'est gratuit, c'est vous le produit. Reprenez le contrôle de vos données personnelles en quittant les écosystèmes fermés (Google, Meta).</p>
+                </div>
             
             <div class="card">
                 <div class="card-icon">🌱</div>
-                <h3>H3</h3>
+                <h3>Economy</h3>
                 <p>TEST6</p>
             </div>
     </div>
 </div>
 </section>
+
+   <div id="quiz-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            
+
+            <div id="quiz-start" class="quiz-step">
+                <h2>Le Test de Résistance</h2>
+                <p>Es-tu prêt à découvrir ton niveau d'indépendance numérique ?</p>
+                <button id="start-quiz-btn" class="btn btn-primary full-width">Lancer le scan</button>
+            </div>
+
+            <div id="quiz-game" class="quiz-step hide">
+                <div class="progress-bar">
+                    <div id="progress" class="progress-fill"></div>
+                </div>
+                <h3 id="question-text">Question goes here?</h3>
+                <div id="answer-buttons" class="btn-grid">
+                </div>
+            </div>
+
+            <div id="quiz-result" class="quiz-step hide">
+                <h2>Analyse Terminée</h2>
+                <div class="score-display">
+                    Ton Score: <span id="score">0</span>
+                </div>
+                <div class="conseil-box">
+                    <h4>💡 Conseil des Sages :</h4>
+                    <p id="conseil-text">...</p>
+                </div>
+                <div class="btn-group">
+                    <button id="restart-btn" class="btn btn-primary">Recommencer</button>
+                    <button id="close-btn-final" class="btn btn-outline">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 <div id="pied">
     <hr>
