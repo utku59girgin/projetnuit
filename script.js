@@ -29,8 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
             question: "Ton école doit renouveler ses ordinateurs. Que proposes-tu ?",
             answers: [
                 { text: "On rachète tout en neuf chez le même fournisseur.", correct: false },
-                { text: "On installe Linux sur les vieux PC pour les prolonger.", correct: true },
-                { text: "On passe aux tablettes, c'est plus moderne.", correct: false }
+                { text: "On passe aux tablettes, c'est plus moderne.", correct: false },
+                { text: "On installe Linux sur les vieux PC pour les prolonger.", correct: true }
             ]
         },
         {
@@ -45,8 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
             question: "Tu dois envoyer un gros fichier à un ami. Que fais-tu ?",
             answers: [
                 { text: "Je l'envoie par email, peu importe la taille.", correct: false },
-                { text: "J'utilise un service de partage de fichiers libre comme Nextcloud.", correct: true },
                 { text: "Je le mets sur une clé USB et je le lui donne en main propre.", correct: false },
+                { text: "J'utilise un service de partage de fichiers libre comme Nextcloud.", correct: true },
                 { text: "J'appelle ma mère pour qu'elle m'aide.", correct: false }
             ]
         },
@@ -54,8 +54,8 @@ document.addEventListener('DOMContentLoaded', () => {
             question: "Tu veux protéger tes données personnelles. Que fais-tu ?",
             answers: [
                 { text: "Je n'utilise pas de mot de passe, c'est trop compliqué.", correct: false },
-                { text: "J'utilise un gestionnaire de mots de passe libre comme Apple Passwords.", correct: true },
-                { text: "Je note mes mots de passe sur un post-it.", correct: false }
+                { text: "Je note mes mots de passe sur un post-it.", correct: false },
+                { text: "J'utilise un gestionnaire de mots de passe libre comme Apple Passwords.", correct: true }
             ]
         },
         {
@@ -166,6 +166,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         Array.from(answerButtons.children).forEach(button => {
             button.disabled = true;
+
+            if (button.dataset.correct === "true") {
+                button.style.backgroundColor = "#10b981";
+                button.style.color = "white";
+            }
         });
 
         setTimeout(() => {
@@ -186,12 +191,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (score === questions.length) {
             conseilText.innerText = "Excellent ! Tu es prêt à mener la résistance numérique.";
-        } else if (score > 0 && score <= 4) {
-            conseilText.innerText = "Bien joué ! Tu as de bonnes bases, mais quelques vieux réflexes persistent.";
-        } else if (score > 4) {
-            conseilText.innerText = "Pas mal ! Tu commences à comprendre les enjeux du logiciel libre.";
-        } else {
+        } else if (score >= 0 && score < 4) {
             conseilText.innerText = "Oups ! Goliath te tient encore. Commence par installer Firefox aujourd'hui.";
+        } else if (score >= 4 && score <=6) {
+            conseilText.innerText = "Pas mal ! Tu commences à comprendre les enjeux du logiciel libre.";
+        }  
+        else {
+            conseilText.innerText = "T'es un vrai crack champion!!";
         }
     }
 

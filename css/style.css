@@ -91,6 +91,18 @@ a:hover{
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
+.statement {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: #475569;
+    margin-bottom: 3.5rem;
+    padding: 2rem;
+    background: #ffffff;
+    border-left: 5px solid lightblue;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
 .mission-statement strong {
     color: #1e293b;
 }
