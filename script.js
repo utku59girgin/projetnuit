@@ -59,6 +59,22 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         {
+            question: "Facebook te propose de télécharger tes données. Que fais-tu ?",
+            answers: [
+                { text: "Je télécharge tout et je le publie en ligne.", correct: false },
+                { text: "Je télécharge mes données et je les analyse avec des outils libres.", correct: true },
+                { text: "Je ne fais rien, ça ne m'intéresse pas.", correct: false }
+            ]
+        },
+        {
+            question: "Une application te demande des permissions excessives. Que fais-tu ?",
+            answers: [
+                { text: "Je les accepte, sinon l'application ne marche pas.", correct: false },
+                { text: "Je cherche une alternative libre qui respecte ma vie privée.", correct: true },
+                { text: "Je désinstalle l'application et j'abandonne.", correct: false }
+            ]
+        },
+        {
             question: "Un fichier '.docx' ne s'ouvre pas. Que fais-tu ?",
             answers: [
                 { text: "J'achète une licence Office à 150€.", correct: false },
