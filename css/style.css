@@ -1,33 +1,52 @@
-
 .navbar {
-    background-color: #2c3e50;
-    color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
+    background-color: rgba(2, 6, 23, 0.95); 
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    
     padding: 1rem 2rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
 }
 
-.navbar-brand{
+.navbar-brand {
     width: 150px;
-    height: 100px;;
+    height: auto; 
+    object-fit: contain; 
 }
 
 .navbar-nav {
-    display: flex;
+    display: flex; 
+    flex-direction: row;
     align-items: center;
-    list-style: none;
     gap: 2rem;
+    
+    list-style: none;
     margin: 0;
     padding: 0;
-    height: 60px;
+}
+
+.nav-link {
+    color: #cbd5e1;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 1rem;
+}
+
+.nav-link:hover {
+    color: #b71818;
 }
 
 .nav-link.active {
     font-weight: bold;
-    color: #ab29b2;
+    color: #f0d080;
+    text-shadow: 0 0 10px rgba(240, 208, 128, 0.3);
 }
 
 body {
@@ -60,22 +79,32 @@ a:hover{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 100px 5% 4rem 5%;
+    padding: 120px 5% 6rem 5%;
     overflow: hidden;
     
-    background-color: #f8fafc;
+    background-color: #020617;
     background-image: 
-        radial-gradient(circle at 85% 20%, rgba(37, 99, 235, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 10% 80%, rgba(245, 158, 11, 0.08) 0%, transparent 40%);
+        radial-gradient(circle at 85% 20%, rgba(37, 99, 235, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 10% 80%, rgba(240, 208, 128, 0.08) 0%, transparent 40%);
+    color: white;
 }
-
 .contenu {
     max-width: 100%;
     text-align: center;
 }
 
+.contenu h1 {
+    font-size: 5rem;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    color: #ffffff;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    text-shadow: 0 0 30px rgba(37, 99, 235, 0.3);
+}
+
 .tagline {
-    color: #2563eb;
+    color: #f0d080;
     font-weight: 700;
     letter-spacing: 1.5px;
     text-transform: uppercase;
@@ -83,18 +112,12 @@ a:hover{
     display: inline-flex;
     align-items: center;
     margin-bottom: 1rem;
-    background: rgba(37, 99, 235, 0.1);
+    background: rgba(240, 208, 128, 0.1);
+    border: 1px solid rgba(240, 208, 128, 0.2);
     padding: 0.5rem 1rem;
     border-radius: 20px;
 }
-.contenu h1 {
-    font-size: 5.8rem;
-    line-height: 1.1;
-    margin-bottom: 2rem;
-    color: #1e293b;
-    font-weight: 800;
-    letter-spacing: -1.5px;
-}
+
 .logolog {
     width: 100px;
     height: 100px;
@@ -103,13 +126,21 @@ a:hover{
 .mission-statement {
     font-size: 1.25rem;
     line-height: 1.8;
-    color: #475569;
+    color: #e2e8f0;
     margin-bottom: 3.5rem;
     padding: 2rem;
-    background: #ffffff;
-    border-left: 5px solid #f59e0b;
+    
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+    border-left: 5px solid #cea848;
     border-radius: 0 8px 8px 0;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.mission-statement strong {
+    color: #ffffff;
 }
 
 .statement {
@@ -153,9 +184,15 @@ a:hover{
 .btn-primary {
     background-color: #2563eb;
     color: white;
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.4); /* Glowing effect */
+    border: 1px solid rgba(255,255,255,0.1);
 }
 
+.btn-primary:hover {
+    background-color: #1d4ed8;
+    box-shadow: 0 0 30px rgba(37, 99, 235, 0.6);
+    transform: translateY(-2px);
+}
 .btn-telecharge{
     background-color: #2563eb;
     color: white;
@@ -163,11 +200,6 @@ a:hover{
     height: 50px;
     width: 180px;
     padding: 10px 14px;
-}
-
-.btn-primary:hover {
-    background-color: #1d4ed8;
-    box-shadow: 0 6px 15px rgba(37, 99, 235, 0.35);
 }
 
 .grid-3 {
@@ -376,4 +408,151 @@ a:hover{
     border-radius: 8px;
     margin: 1.5rem 0;
     text-align: left;
+}
+
+.hero-section {
+    background-color: #f0f2f5;
+    padding: 60px 20px;
+    text-align: center;
+    border-bottom: 4px solid #3b82f6;
+    margin-bottom: 40px;
+}
+
+.hero-section h1 {
+    font-size: 2.5rem;
+    color: #1f2937;
+    margin-bottom: 15px;
+}
+
+.hero-image{
+    width: 600px;
+    height: auto;
+    margin-top: 20px;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    color: #4b5563;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.intro-block, .info-block, .solution-block {
+    margin-bottom: 50px;
+    line-height: 1.6;
+}
+
+.risk-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+.risk-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+}
+
+.risk-card:hover {
+    transform: translateY(-5px);
+}
+
+.risk-card .icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.risk-card h3 {
+    color: #111827;
+    margin-bottom: 10px;
+}
+
+.risk-card.warning {
+    border: 2px solid #ef4444;
+    background-color: #fef2f2;
+}
+
+.risk-card.warning h3 {
+    color: #b91c1c;
+}
+
+.check-list {
+    list-style: none;
+    padding: 0;
+}
+
+.check-list li {
+    background-color: #ecfdf5;
+    color: #065f46;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+#apprendre {
+    background: 
+        linear-gradient(rgba(0, 0, 50, 0.8), rgba(0, 0, 0, 0.8)),
+        url('../img/asterix.png');
+
+    background-size: cover;
+    background-position: center;
+    
+    background-attachment: fixed; 
+    
+    color: #ffffff;
+    
+    padding: 80px 20px;
+}
+
+#apprendre .section-header h2 {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5); 
+}
+
+#apprendre .tagline {
+    color: #f0d080;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#apprendre .card {
+    background: rgba(255, 255, 255, 0.1); 
+    
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    
+    color: #ffffff;
+    
+    padding: 2rem;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+#apprendre .card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #f0d080;
+}
+
+#apprendre .card p {
+    color: #e0e0e0;
+}
+
+#apprendre .card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+#apprendre h3 {
+    color: #fff;
+    margin-bottom: 1rem;
 }
