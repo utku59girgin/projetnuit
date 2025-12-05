@@ -1,26 +1,19 @@
-/* =========================================
-   1. IMPORTS & VARIABLES
-   ========================================= */
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 :root {
     /* Palette sombre et néon */
     --bg: #0f1724;
-    --card: rgba(11, 18, 32, 0.95); /* Plus opaque pour lisibilité sur la grille */
-    --accent: #ffd166;       /* Jaune rétro */
-    --muted: #9aa7b2;        /* Gris bleuté */
+    --card: rgba(11, 18, 32, 0.95); 
+    --accent: #ffd166;      
+    --muted: #9aa7b2;       
     --glass: rgba(255, 255, 255, 0.04);
     
-    /* Couleurs spécifiques au jeu */
-    --neon-danger: #ff0055;  /* Rouge alerte */
-    --neon-magic: #b000ff;   /* Violet mana */
-    --neon-blue: #00d4ff;    /* Bleu futuriste */
-    --grid-line: rgba(0, 212, 255, 0.08); /* Couleur de la grille de fond */
+    --neon-danger: #ff0055;  
+    --neon-magic: #b000ff;  
+    --neon-blue: #00d4ff;  
+    --grid-line: rgba(0, 212, 255, 0.08); 
 }
 
-/* =========================================
-   2. BASES & TYPOGRAPHIE
-   ========================================= */
 * {
     box-sizing: border-box;
 }
@@ -33,38 +26,29 @@ body {
     font-size: 20px;
     color: #e6eef6;
     
-    /* --- FOND RETRO CRT (Grille + Scanlines + Vignette) --- */
-    background-color: #020408; /* Noir profond */
+    background-color: #020408;
     background-image: 
-        /* 1. Vignette (Coins sombres écran bombé) */
+       
         radial-gradient(circle at center, transparent 50%, #000000 100%),
-        /* 2. Scanlines (Lignes horizontales fines) */
         linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
-        /* 3. Grille Verticale */
         linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
-        /* 4. Grille Horizontale */
         linear-gradient(var(--grid-line) 1px, transparent 1px);
         
     background-size: 
         100% 100%,
-        100% 4px,   /* Taille des scanlines */
-        40px 100%,  /* Espacement vertical grille */
-        100% 40px;  /* Espacement horizontal grille */
+        100% 4px,   
+        40px 100%,
+        100% 40px; 
         
     -webkit-font-smoothing: none;
-    /* Animation subtile de scintillement CRT (optionnel) */
     animation: crt-flicker 0.15s infinite;
 }
 
-/* Effet de scintillement très léger */
 @keyframes crt-flicker {
     0% { opacity: 0.97; }
     100% { opacity: 1; }
 }
 
-/* =========================================
-   3. NAVIGATION (Retro Fit)
-   ========================================= */
 .navbar {
     display: flex;
     align-items: center;
@@ -104,15 +88,13 @@ body {
     text-decoration-style: dashed;
 }
 
-/* =========================================
-   4. LAYOUT PRINCIPAL
-   ========================================= */
+
 .stage {
     max-width: 1100px;
     margin: 28px auto;
     padding: 18px;
     position: relative;
-    z-index: 5; /* Au dessus de la grille */
+    z-index: 5; 
 }
 
 .header {
@@ -123,7 +105,7 @@ body {
     margin-bottom: 18px;
     border-bottom: 2px dashed var(--glass);
     padding-bottom: 10px;
-    background: rgba(0,0,0,0.3); /* Contraste texte */
+    background: rgba(0,0,0,0.3);
     padding: 10px;
     border-radius: 4px;
 }
@@ -137,7 +119,7 @@ body {
 .masc {
     width: 64px;
     height: 64px;
-    border-radius: 0; /* Carré pur pixel */
+    border-radius: 0; 
     background: linear-gradient(135deg, #ffd86b, #ff9a3c);
     display: flex;
     align-items: center;
@@ -176,14 +158,12 @@ body {
     gap: 20px;
 }
 
-/* =========================================
-   5. CARTES & LORE
-   ========================================= */
+
 .card {
     background: var(--card);
     border-radius: 2px;
     padding: 20px;
-    box-shadow: 8px 8px 0 rgba(0,0,0,0.5); /* Ombre solide */
+    box-shadow: 8px 8px 0 rgba(0,0,0,0.5); 
     border: 2px solid var(--muted);
 }
 
@@ -214,7 +194,6 @@ kbd {
     box-shadow: 0 0 5px var(--neon-blue);
 }
 
-/* Jauge de Courage */
 .gaugeWrap {
     margin-top: 12px;
     border: 1px solid #333;
@@ -270,9 +249,7 @@ kbd {
     text-transform: uppercase;
 }
 
-/* =========================================
-   6. FORMULAIRES CLASSIQUES
-   ========================================= */
+
 .form .field {
     margin-bottom: 20px;
 }
@@ -339,9 +316,6 @@ kbd {
     background: #222;
 }
 
-/* =========================================
-   7. LE CHAMP INFERNAL (Tubes de Mana)
-   ========================================= */
 .mana-field {
     background: #000;
     padding: 15px;
@@ -380,7 +354,6 @@ kbd {
     box-shadow: inset 0 0 10px #000;
 }
 
-/* Le liquide animé */
 .liquid {
     position: absolute;
     bottom: 0;
@@ -388,7 +361,7 @@ kbd {
     width: 100%;
     height: 0%;
     background: linear-gradient(to top, var(--neon-magic), var(--neon-blue));
-    border-top: 4px solid #fff; /* Surface épaisse retro */
+    border-top: 4px solid #fff;
     transition: height 0.05s linear;
     opacity: 0.9;
 }
@@ -460,9 +433,6 @@ kbd {
     50% { opacity: 0; }
 }
 
-/* =========================================
-   8. ACTIONS & BOUTONS
-   ========================================= */
 .actions {
     display: flex;
     justify-content: space-between;
@@ -518,9 +488,6 @@ kbd {
     color: #fff;
 }
 
-/* =========================================
-   9. MODAL & CONFETTI
-   ========================================= */
 .modal {
     position: fixed;
     inset: 0;
@@ -538,7 +505,7 @@ kbd {
 .modalCard {
     width: min(720px, 92%);
     background: #050a10;
-    border: 4px solid var(--accent); /* Bordure épaisse */
+    border: 4px solid var(--accent);
     padding: 24px;
     box-shadow: 0 0 50px rgba(255, 209, 102, 0.2);
     text-align: center;
@@ -579,9 +546,6 @@ kbd {
     100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
 }
 
-/* =========================================
-   10. MOBILE
-   ========================================= */
 @media (max-width: 960px) {
     .arena {
         grid-template-columns: 1fr;
