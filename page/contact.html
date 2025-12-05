@@ -1,12 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
+    <title>Contact - Le Défi</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/retrocontact.css">
     <script src="../contact.js" defer></script>
+
+    <style>
+        .mana-field {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .mana-label {
+            display: block;
+            color: #fff;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        .tubes-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            height: 120px;
+            margin-bottom: 5px;
+        }
+
+        .tube-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .tube {
+            flex: 1;
+            width: 100%;
+            background: #0f0f1a;
+            border: 1px solid #555;
+            border-radius: 4px;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            box-shadow: inset 0 0 10px #000;
+        }
+
+        .liquid {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0%;
+            background: linear-gradient(to top, #7209b7, #4361ee);
+            transition: height 0.05s linear; /* Très réactif */
+            opacity: 0.9;
+        }
+
+        .graduation {
+            position: absolute;
+            width: 100%;
+            height: 10%;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            pointer-events: none;
+            box-sizing: border-box;
+        }
+
+        .digit-display {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #fff;
+            margin-top: 2px;
+            font-family: monospace;
+            text-shadow: 0 0 5px #4361ee;
+        }
+
+        .pump-btn {
+            margin-top: 4px;
+            background: #4361ee;
+            border: 1px solid #fff;
+            color: white;
+            padding: 2px 0;
+            width: 100%;
+            cursor: pointer;
+            font-size: 0.7em;
+            border-radius: 3px;
+            user-select: none;
+            transition: transform 0.05s;
+        }
+        
+        .pump-btn:active {
+            transform: scale(0.95);
+            background: #f72585;
+        }
+
+        .burst {
+            animation: shake 0.4s;
+            border-color: #f72585;
+        }
+
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-3px); }
+            50% { transform: translateX(3px); }
+            75% { transform: translateX(-3px); }
+            100% { transform: translateX(0); }
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -14,6 +121,7 @@
         <ul class="navbar-nav">
             <li><a href="../index.html" class="nav-link">Accueil</a></li>
             <li><a href="logiciels.html" class="nav-link">Logiciels Libres</a></li>
+            <li><a href="donnee.html" class="nav-link">Données</a></li>
         </ul>
     </nav>
    
@@ -55,6 +163,16 @@
         <div class="hint" id="hintEmail">Le parchemin doit être lisible par nos hiboux.</div>
       </div>
 
+      <div class="field mana-field">
+        <label class="mana-label">Code Postal (Stabilisation Hydro-Magique)</label>
+        <div style="font-size: 0.8em; color: #aaa; margin-bottom: 5px;">Pompez pour atteindre le chiffre. Attention aux fuites et aux éclaboussures voisines.</div>
+        
+        <div class="tubes-container" id="manaTubes">
+            </div>
+        
+        <input type="hidden" id="zipcode" name="zipcode" required>
+        <div class="hint">Gardez les niveaux stables au moment de l'envoi !</div>
+      </div>
       <div class="field row">
         <div style="flex:1">
           <label for="subject">Sujet</label>
@@ -84,8 +202,7 @@
   <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
     <div class="modalCard">
       <div id="modalContent" class="modalContent">
-        <!-- contenu injecté -->
-      </div>
+        </div>
       <div class="modalActions">
         <button id="modalOk" class="btn">OK</button>
         <button id="modalShare" class="btn ghost">Partager</button>
@@ -93,10 +210,8 @@
     </div>
   </div>
 
-  <!-- confetti container -->
   <div id="confetti"></div>
 
-  <!--<footer class="footer">Prototype — Remplace l'endpoint pour envoyer réellement (ex: Formspree).</footer>-->
 </main>
 
 
@@ -107,6 +222,134 @@
         <a href="privacy.html">Politique de confidentialité</a> | 
         <a href="contact.html">Contact</a></p>
 </div>
+
+<script>
+(function() {
+    // Configuration de la difficulté
+    const NUM_TUBES = 5;
+    const PUMP_POWER = 18; // % ajouté par clic
+    const DECAY_RATE = 0.35; // % perdu par frame (la fuite)
+    const CONTAMINATION = 4; // % ajouté aux voisins (l'effet frustrant)
+
+    let tubeLevels = new Array(NUM_TUBES).fill(0);
+    let tubesElements = [];
+    const container = document.getElementById('manaTubes');
+    const hiddenInput = document.getElementById('zipcode');
+    // Récupération de la jauge existante pour lier les systèmes
+    const existingGauge = document.getElementById('gaugeBar'); 
+
+    function initTubes() {
+        container.innerHTML = '';
+        for (let i = 0; i < NUM_TUBES; i++) {
+            let wrapper = document.createElement('div');
+            wrapper.className = 'tube-wrapper';
+
+            let tube = document.createElement('div');
+            tube.className = 'tube';
+            
+            // Lignes de graduation décoratives
+            for(let j=0; j<10; j++) {
+                let line = document.createElement('div');
+                line.className = 'graduation';
+                line.style.bottom = (j * 10) + '%';
+                tube.appendChild(line);
+            }
+
+            let liquid = document.createElement('div');
+            liquid.className = 'liquid';
+            
+            let display = document.createElement('div');
+            display.className = 'digit-display';
+            display.innerText = '0';
+
+            let btn = document.createElement('button');
+            btn.className = 'pump-btn';
+            btn.type = 'button'; 
+            btn.innerText = '▲';
+            
+            // Événement clic
+            btn.addEventListener('mousedown', (e) => {
+                e.preventDefault(); // Empêche le focus indésirable
+                pumpTube(i);
+            });
+
+            tube.appendChild(liquid);
+            wrapper.appendChild(tube);
+            wrapper.appendChild(display);
+            wrapper.appendChild(btn);
+            container.appendChild(wrapper);
+
+            tubesElements.push({ liquid, display, tube });
+        }
+        requestAnimationFrame(gameLoop);
+    }
+
+    function pumpTube(index) {
+        // Logique principale : on remplit
+        addLiquid(index, PUMP_POWER);
+        
+        // Logique de frustration : on éclabousse les voisins
+        if (index > 0) addLiquid(index - 1, CONTAMINATION);
+        if (index < NUM_TUBES - 1) addLiquid(index + 1, CONTAMINATION);
+
+        // Intégration avec votre système de récompense existant (Jauge)
+        // On booste très légèrement la jauge "Courage" à chaque clic pour encourager l'effort
+        if(existingGauge) {
+            let currentW = parseFloat(existingGauge.style.width) || 0;
+            if(currentW < 100) existingGauge.style.width = (currentW + 0.5) + '%';
+        }
+    }
+
+    function addLiquid(index, amount) {
+        tubeLevels[index] += amount;
+        if (tubeLevels[index] > 100) {
+            tubeLevels[index] = 0; // Explosion ! Retour à 0
+            triggerBurst(index);
+        }
+    }
+
+    function triggerBurst(index) {
+        const el = tubesElements[index].tube;
+        el.classList.add('burst');
+        setTimeout(() => el.classList.remove('burst'), 400);
+    }
+
+    function getDigit(level) {
+        let digit = Math.floor(level / 10);
+        return digit > 9 ? 9 : digit;
+    }
+
+    function gameLoop() {
+        for (let i = 0; i < NUM_TUBES; i++) {
+            // Fuite constante (Gravité)
+            if (tubeLevels[i] > 0) {
+                tubeLevels[i] -= DECAY_RATE;
+                if (tubeLevels[i] < 0) tubeLevels[i] = 0;
+            }
+
+            // Mise à jour visuelle
+            const digit = getDigit(tubeLevels[i]);
+            tubesElements[i].liquid.style.height = tubeLevels[i] + '%';
+            tubesElements[i].display.innerText = digit;
+            
+            // Changement de couleur si proche de l'explosion
+            if (tubeLevels[i] > 90) {
+                tubesElements[i].liquid.style.background = '#f72585';
+            } else {
+                tubesElements[i].liquid.style.background = 'linear-gradient(to top, #7209b7, #4361ee)';
+            }
+        }
+
+        // Mise à jour de l'input caché pour l'envoi du formulaire
+        hiddenInput.value = tubeLevels.map(l => getDigit(l)).join('');
+        
+        requestAnimationFrame(gameLoop);
+    }
+
+    // Démarrage
+    initTubes();
+})();
+</script>
 
 </body>
 </html>
