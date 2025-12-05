@@ -36,8 +36,13 @@ a:link, a:visited{
     text-decoration: none;
 }
 
-.software a:link{
-    color: rgb(235, 30, 30);
+.software a:link, a:visited{
+    color: rgb(235, 241, 243);
+    text-decoration: none;
+}
+
+.software a:link:hover{
+    color: darkred;
     text-decoration: none;
 }
 
@@ -143,6 +148,15 @@ a:hover{
     background-color: #2563eb;
     color: white;
     box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+.btn-telecharge{
+    background-color: #2563eb;
+    color: white;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+    height: 50px;
+    width: 180px;
+    padding: 10px 14px;
 }
 
 .btn-primary:hover {
