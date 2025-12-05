@@ -25,8 +25,13 @@
                 <h2>LibreOffice</h2>
                 <p>LibreOffice est une suite bureautique libre et gratuite. Il est compatible avec tous les formats de fichiers courants.</p>
                 <div class="btn-group" style="margin-top: 2rem;">
-                <button class="btn btn-telecharge"> <a href="https://www.libreoffice.org/download/download/" target="_blank">Télécharger LibreOffice</a></button>
-                <button id="open-info-btn" class="btn btn-telecharge">En savoir plus</button></div>
+                    <button class="btn btn-telecharge"> <a href="https://www.libreoffice.org/download/download/" target="_blank">Télécharger LibreOffice</a></button>
+                    <button class="btn btn-telecharge open-info-btn" 
+                        data-title="" 
+                        data-desc="LibreOffice est une suite bureautique puissante. Elle remplace parfaitement Word, Excel et PowerPoint. Elle est libre, gratuite et respecte vos formats de fichiers.">
+                        En savoir plus
+                    </button>
+                </div>
             </div>
 
             <div class="software">
@@ -35,7 +40,7 @@
                 <p>Ubuntu est un système d'exploitation basé sur Linux, convivial et idéal pour les débutants.</p>
                 <div class="btn-group" style="margin-top: 2rem;">
                 <button class="btn btn-telecharge"> <a href="https://ubuntu.com/download" target="_blank">Télécharger Ubuntu</a></button>
-                <button id="open-info-btn" class="btn btn-telecharge">En savoir plus</button>
+                <button class="btn btn-telecharge open-info-btn">En savoir plus</button>
                 </div>
             </div>
 
@@ -45,7 +50,7 @@
                 <p>Linux est un système d'exploitation open-source qui offre une grande flexibilité et sécurité.</p>
                 <div class="btn-group" style="margin-top: 2rem;">
                 <button class="btn btn-telecharge"> <a href="https://www.linux.org/downloads/" target="_blank">Télécharger Linux</a></button>
-                <button id="open-info-btn" class="btn btn-telecharge">En savoir plus</button>
+                <button class="btn btn-telecharge open-info-btn">En savoir plus</button>
                 </div>
             </div>
              <div class="software">  
@@ -54,7 +59,7 @@
                 <p>Notepad++ est un éditeur de code source gratuit qui prend en charge plusieurs langages de programmation.</p>
                 <div class="btn-group" style="margin-top: 2rem;">
                 <button class="btn btn-telecharge"> <a href="https://notepad-plus-plus.org/downloads/" target="_blank">Télécharger Notepad++</a></button>
-                <button id="open-info-btn" class="btn btn-telecharge">En savoir plus</button>
+                <button class="btn btn-telecharge open-info-btn">En savoir plus</button>
                 </div>
             </div>   
             <div class="software">
@@ -63,7 +68,7 @@
                 <p>Thunderbird est un client de messagerie open-source, rapide et facile à utiliser.</p>        
                 <div class="btn-group" style="margin-top: 2rem;">
                 <button class="btn btn-telecharge"> <a href="https://www.thunderbird.net/fr/download/" target="_blank">Télécharger Thunderbird</a></button>
-                <button id="open-info-btn" class="btn btn-telecharge">En savoir plus</button>
+                <button class="btn btn-telecharge open-info-btn">En savoir plus</button>
                 </div>
              </div>
     </div>
@@ -77,7 +82,18 @@
         <a href="contact.html">Contact</a></p>
 </div>
 
+<div id="info-modal" class="modal">
+    <div class="modal-content">
+        <span id="close-info-x" class="close">&times;</span>
+        
+        <h2 id="modal-title">Titre par défaut</h2>
+        <p id="modal-desc">Description par défaut...</p>
 
+        <div style="margin-top: 20px; text-align: right;">
+            <button id="close-info-btn" class="btn btn-outline">Fermer</button>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>

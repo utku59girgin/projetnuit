@@ -51,6 +51,23 @@ document.addEventListener('DOMContentLoaded', () => {
             infoModal.style.display = "none";
         }
     }
+
+
+    const modalTitle = document.getElementById("modal-title");
+    const modalDesc = document.getElementById("modal-desc");
+    const openInfoBtns = document.querySelectorAll(".open-info-btn");
+
+    openInfoBtns.forEach(button => {
+        button.addEventListener('click', () => {
+            const titleText = button.getAttribute("data-title");
+            const descText = button.getAttribute("data-desc");
+
+            if (modalTitle) modalTitle.innerText = titleText;
+            if (modalDesc) modalDesc.innerText = descText;
+
+            infoModal.style.display = "flex";
+        });
+    });
     
     const questions = [
         {
