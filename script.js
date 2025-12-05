@@ -166,6 +166,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         Array.from(answerButtons.children).forEach(button => {
             button.disabled = true;
+
+            if (button.dataset.correct === "true") {
+                button.style.backgroundColor = "#10b981";
+                button.style.color = "white";
+            }
         });
 
         setTimeout(() => {
