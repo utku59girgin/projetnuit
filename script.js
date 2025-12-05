@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const descText = button.getAttribute("data-desc");
 
             if (modalTitle) modalTitle.innerText = titleText;
-            if (modalDesc) modalDesc.innerText = descText;
+            if (modalDesc) modalDesc.innerHTML = descText;
 
             infoModal.style.display = "flex";
         });
