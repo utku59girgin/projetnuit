@@ -75,6 +75,15 @@ a:hover{
     color: lightblue;
 }
 
+.contenulogiciels{
+    padding: 120px 5% 6rem 5%;
+    flex-wrap: wrap;
+    background-color: #020617;
+    background-image: 
+        radial-gradient(circle at 85% 20%, rgba(37, 99, 235, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 10% 80%, rgba(240, 208, 128, 0.08) 0%, transparent 40%);
+}
+
 .maincontenu {
     display: flex;
     justify-content: center;
