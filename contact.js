@@ -266,3 +266,13 @@ $$('input,textarea').forEach(el=>{
     if(e.key === 'Enter' && el.tagName.toLowerCase() !== 'textarea') e.preventDefault();
   });
 });
+
+function playBubble(){
+  try{
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const o = ctx.createOscillator(); const g = ctx.createGain();
+    o.type='sine'; o.frequency.setValueAtTime(700, ctx.currentTime); o.frequency.exponentialRampToValueAtTime(220, ctx.currentTime+0.5);
+    g.gain.setValueAtTime(0.0001, ctx.currentTime); g.gain.exponentialRampToValueAtTime(0.12, ctx.currentTime+0.06);
+    o.connect(g); g.connect(ctx.destination); o.start(); o.stop(ctx.currentTime+0.9);
+  }catch(e){}
+}
