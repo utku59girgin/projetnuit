@@ -305,3 +305,5 @@ document.getElementById("sendBtn").addEventListener("click", () => {
   audio.volume = 0.4;
   audio.play();
 });
+// function retro-gamming here (to be continued...)
+
