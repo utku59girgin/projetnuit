@@ -14,6 +14,10 @@
     box-shadow: 0 4px 20px rgba(0,0,0,0.4);
 }
 
+.container{
+    background-color: rgba(2, 6, 23, 0.95); 
+}
+
 .navbar-brand {
     width: 150px;
     height: auto; 
@@ -52,7 +56,7 @@
 body {
     font-family: system-ui, -apple-system, sans-serif;
     color: #475569;
-    background-color: #f8fafc;
+    background-color: rgba(2, 6, 23, 0.95); 
     line-height: 1.6;
 }
 
@@ -237,13 +241,14 @@ a:hover{
 
 
 .software {
-    background: #ffffff;
-    padding: 2.5rem;
-    border-radius: 16px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-    border: 1px solid #f1f5f9;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    color: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
 }
 
 .card:hover {
@@ -428,7 +433,7 @@ a:hover{
 }
 
 .hero-section {
-    background-color: #f0f2f5;
+    background-color: rgba(2, 6, 23, 0.95);
     padding: 60px 20px;
     text-align: center;
     border-bottom: 4px solid #3b82f6;
@@ -437,7 +442,7 @@ a:hover{
 
 .hero-section h1 {
     font-size: 2.5rem;
-    color: #1f2937;
+    color: #f0d080;
     margin-bottom: 15px;
 }
 
@@ -449,7 +454,7 @@ a:hover{
 
 .hero-section p {
     font-size: 1.2rem;
-    color: #4b5563;
+    color: #ffffff;
     max-width: 700px;
     margin: 0 auto;
 }
@@ -457,6 +462,7 @@ a:hover{
 .intro-block, .info-block, .solution-block {
     margin-bottom: 50px;
     line-height: 1.6;
+    color: #f0d080;
 }
 
 .risk-grid {
@@ -467,12 +473,14 @@ a:hover{
 }
 
 .risk-card {
-    background: white;
-    border: 1px solid #e5e7eb;
+    background: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    padding: 2rem;
     border-radius: 12px;
-    padding: 25px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    transition: transform 0.2s;
+    transition: transform 0.3s ease;
 }
 
 .risk-card:hover {
@@ -485,13 +493,13 @@ a:hover{
 }
 
 .risk-card h3 {
-    color: #111827;
+    color: #2ba443;
     margin-bottom: 10px;
 }
 
 .risk-card.warning {
     border: 2px solid #ef4444;
-    background-color: #fef2f2;
+    background-color: rgba(2, 6, 23, 0.95); 
 }
 
 .risk-card.warning h3 {
@@ -504,8 +512,8 @@ a:hover{
 }
 
 .check-list li {
-    background-color: #ecfdf5;
-    color: #065f46;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
     padding: 15px;
     margin-bottom: 10px;
     border-radius: 8px;
