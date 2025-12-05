@@ -152,6 +152,10 @@ a:hover{
     color: #ffffff;
 }
 
+#modal-desc{
+    text-align: left;
+}
+
 .statement {
     font-size: 1.25rem;
     line-height: 1.8;
