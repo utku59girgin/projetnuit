@@ -17,6 +17,23 @@
     </nav>
         <div class="contenu">
     <h1>Téléchargez les Logiciels</h1>
+    <p>Chaque logiciel comprend : description, tutoriel pas-à-pas, conseils d'installation et ressources.</p>
+        <div class="btn-group" style="margin-top: 2rem;">
+        <button class="btn btn-telecharge open-info-btn" 
+        data-title="Guide rapide pour une première visite" 
+        data-desc="<p>Bienvenue ! Voici comment utiliser cette page si c'est ta première fois :<br> 
+        <ol>
+        <li>Regarde la liste des logiciels et lis la description courte pour savoir à quoi sert chaque outil.</li>
+        <li>Ouvre le tutoriel (section 'Tutoriel rapide') pour suivre les étapes d'installation.</li>
+        <li>Utilise les liens officiels pour télécharger l'installateur approprié à ton système.</li>
+        <li>Si tu veux tester sans risque, utilise une machine virtuelle (VirtualBox) ou la fonction 'Essayer' pour les distributions Linux.</li>
+      </ol>
+        </p> 
+       <p style='font-size:13px;color:var(--muted)'> Ce guide s'affichera automatiquement la première fois. Tu peux le rouvrir via le bouton 'Guide pour 1ère visite'.</p></button> ">
+        Guide pour première fois
+        </button>
+        </div>
+        <br>
     <div class="grid-3">
             
 
@@ -27,8 +44,23 @@
                 <div class="btn-group" style="margin-top: 2rem;">
                     <button class="btn btn-telecharge"> <a href="https://www.libreoffice.org/download/download/" target="_blank">Télécharger LibreOffice</a></button>
                     <button class="btn btn-telecharge open-info-btn" 
-                        data-title="" 
-                        data-desc="LibreOffice est une suite bureautique puissante. Elle remplace parfaitement Word, Excel et PowerPoint. Elle est libre, gratuite et respecte vos formats de fichiers.">
+                        data-title=" Tutoriel rapide (débutant)" 
+                        data-desc="LibreOffice est une suite bureautique puissante
+                        complète (Writer, Calc, Impress, Draw...) 
+                        compatible avec la plupart des formats (docx, xlsx, pptx). Idéale pour rédiger, 
+                        créer des tableaux et présenter des documents sans licence payante..
+                        Elle remplace parfaitement Word, Excel et PowerPoint. Elle est libre,
+                        gratuite et respecte vos formats de fichiers.
+          <ol>
+            <li>Télécharger l'installateur depuis le lien officiel.</li>
+            <li>Lancer l'installateur : accepter les conditions, choisir 'Installation standard.</li>
+            <li>Ouvrir LibreOffice → Fichier → Nouveau → choisir Writer pour un document texte.</li>
+            <li>Enregistrer : Fichier → Enregistrer sous → choisir dossier et format (par ex. .odt ou .docx).</li>
+          </ol>
+         <p style='font-size:13px;color:var(--muted)'><strong>Conseils :</strong> Si vous travaillez en collaboration, préférez enregistrer au 
+            format .docx si vos correspondants utilisent Word. LibreOffice propose des modèles (Fichier → Modèles).</p> 
+                        
+                        ">
                         En savoir plus
                     </button>
                 </div>
@@ -41,8 +73,19 @@
                 <div class="btn-group" style="margin-top: 2rem;">
                 <button class="btn btn-telecharge"> <a href="https://ubuntu.com/download" target="_blank">Télécharger Ubuntu</a></button>
                 <button class="btn btn-telecharge open-info-btn" 
-                    data-title="" 
-                    data-desc=".">
+                    data-title="Tutoriel rapide (installation sur PC)" 
+                    data-desc="
+                    
+                            <ol>
+                                <li>Télécharger l'image ISO depuis le site officiel.</li>
+                                <li>Créer une clé USB bootable (ex : Rufus sous Windows, balenaEtcher multi-plateforme).</li>
+                                <li>Redémarrer l'ordinateur et booter sur la clé USB (touche F12 / Esc selon le PC).</li>
+                                <li>Choisir 'Essayer Ubuntu' pour tester, ou 'Installer Ubuntu' pour lancer l'installation.</li>
+                                <li>Pendant l'installation : choisir langue, partition (option 'Installer à côté de' pour dual-boot) et créer un utilisateur.</li>
+                            </ol>
+                            <p style='font-size:13px;color:var(--muted)'><strong >Conseils :</strong> Sauvegarde ton disque avant toute installation. 
+                               Pour débuter, installer Ubuntu en mode live (tester sans toucher le disque) est recommandé.</p>
+                                        ">
                     En savoir plus
                     </button>
                 </div>
@@ -55,8 +98,18 @@
                 <div class="btn-group" style="margin-top: 2rem;">
                 <button class="btn btn-telecharge"> <a href="https://www.linux.org/downloads/" target="_blank">Télécharger Linux</a></button>
                 <button class="btn btn-telecharge open-info-btn" 
-                    data-title="" 
-                    data-desc=".">
+                    data-title="Guide d'orientation (pour débutant)" 
+                    data-desc="
+                     <ol>
+            <li>Définir l'usage : bureautique, développement, serveur.</li>
+            <li>Choisir une distribution adaptée (Mint/Ubuntu pour desktop, Debian pour stabilité).</li>
+            <li>Tester en live via clé USB avant d'installer.</li>
+            <li>Rechercher guides d'installation et communauté francophone (forums, StackExchange, Framasoft).</li>
+          </ol>
+           <p style='font-size:13px;color:var(--muted)'><strong>Conseils :</strong> Pour apprendre, 
+            crée une machine virtuelle (VirtualBox) et expérimente sans risque sur un système invité.</div></p>
+                     
+                    ">
                     En savoir plus
                     </button>
                 </div>
@@ -69,7 +122,9 @@
                 <button class="btn btn-telecharge"> <a href="https://notepad-plus-plus.org/downloads/" target="_blank">Télécharger Notepad++</a></button>
                 <button class="btn btn-telecharge open-info-btn" 
                     data-title="" 
-                    data-desc=".">
+                    data-desc="
+                                      
+                    ">
                     En savoir plus
                     </button>
                 </div>
