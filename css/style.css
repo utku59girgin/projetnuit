@@ -37,6 +37,16 @@ a:link, a:visited{
     text-decoration: none;
 }
 
+.software a:link, a:visited{
+    color: rgb(235, 241, 243);
+    text-decoration: none;
+}
+
+.software a:link:hover{
+    color: darkred;
+    text-decoration: none;
+}
+
 a:hover{
     color: lightblue;
 }
@@ -56,6 +66,7 @@ a:hover{
 
 .contenu {
     max-width: 100%;
+    text-align: center;
 }
 
 .tagline {
@@ -78,6 +89,10 @@ a:hover{
     color: #1e293b;
     font-weight: 800;
     letter-spacing: -1.5px;
+}
+.logolog {
+    width: 100px;
+    height: 100px;
 }
 
 .mission-statement {
@@ -136,6 +151,15 @@ a:hover{
     box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
 }
 
+.btn-telecharge{
+    background-color: #2563eb;
+    color: white;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+    height: 50px;
+    width: 180px;
+    padding: 10px 14px;
+}
+
 .btn-primary:hover {
     background-color: #1d4ed8;
     box-shadow: 0 6px 15px rgba(37, 99, 235, 0.35);
@@ -148,6 +172,17 @@ a:hover{
 }
 
 .card {
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f1f5f9;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.software {
     background: #ffffff;
     padding: 2.5rem;
     border-radius: 16px;

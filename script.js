@@ -1,26 +1,54 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    const modal = document.getElementById("quiz-modal");
-    const openBtn = document.getElementById("open-quiz-btn");
-    const closeSpan = document.querySelector(".close-modal");
-    const closeFinalBtn = document.getElementById("close-btn-final");
+    const quizModal = document.getElementById("quiz-modal");
+    const openQuizBtn = document.getElementById("open-quiz-btn");
+    const closeQuizSpan = document.getElementById("close-quiz-x");
+    const closeQuizFinalBtn = document.getElementById("close-btn-final");
 
-    openBtn.onclick = function() {
-        modal.style.display = "flex";
-        resetGame();
+    const infoModal = document.getElementById("info-modal");
+    const openInfoBtn = document.getElementById("open-info-btn");
+    const closeInfoX = document.getElementById("close-info-x"); 
+    const closeInfoBtn = document.getElementById("close-info-btn");
+
+    if (openQuizBtn) {
+        openQuizBtn.onclick = function() {
+            quizModal.style.display = "flex";
+            resetGame();
+        }
+    }
+    if (closeQuizSpan) {
+        closeQuizSpan.onclick = function() {
+            quizModal.style.display = "none";
+        }
+    }
+    if (closeQuizFinalBtn) {
+        closeQuizFinalBtn.onclick = function() {
+            quizModal.style.display = "none";
+        }
     }
 
-    closeSpan.onclick = function() {
-        modal.style.display = "none";
+    if (openInfoBtn) {
+        openInfoBtn.onclick = function() {
+            infoModal.style.display = "flex";
+        }
     }
-
-    closeFinalBtn.onclick = function() {
-        modal.style.display = "none";
+    if (closeInfoX) {
+        closeInfoX.onclick = function() {
+            infoModal.style.display = "none";
+        }
+    }
+    if (closeInfoBtn) {
+        closeInfoBtn.onclick = function() {
+            infoModal.style.display = "none";
+        }
     }
 
     window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
+        if (event.target == quizModal) {
+            quizModal.style.display = "none";
+        }
+        if (event.target == infoModal) {
+            infoModal.style.display = "none";
         }
     }
     
@@ -106,8 +134,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let currentQuestionIndex, score;
 
-    startQuizBtn.addEventListener('click', startGame);
-    restartBtn.addEventListener('click', startGame);
+    if (startQuizBtn) startQuizBtn.addEventListener('click', startGame);
+    if (restartBtn) restartBtn.addEventListener('click', startGame);
 
     function resetGame() {
         startScreen.classList.remove('hide');
@@ -180,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 showResults();
             }
-        }, 800);
+        }, 1500);
     }
 
     function showResults() {
