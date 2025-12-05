@@ -246,4 +246,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    const currentPath = window.location.pathname;
+
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    navLinks.forEach(link => {
+        const linkPath = link.getAttribute('href');
+        
+        if (currentPath.includes(linkPath) && linkPath !== "#") {
+            link.classList.add('active');
+        } 
+        else if ((currentPath === "/" || currentPath.endsWith("index.html")) && link.innerText === "Accueil") {
+             link.classList.add('active');
+        }
+    });
+
 });

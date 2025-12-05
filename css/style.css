@@ -25,6 +25,11 @@
     height: 60px;
 }
 
+.nav-link.active {
+    font-weight: bold;
+    color: #ab29b2;
+}
+
 body {
     font-family: system-ui, -apple-system, sans-serif;
     color: #475569;
