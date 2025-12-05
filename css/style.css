@@ -36,6 +36,11 @@ a:link, a:visited{
     text-decoration: none;
 }
 
+.software a:link{
+    color: rgb(235, 30, 30);
+    text-decoration: none;
+}
+
 a:hover{
     color: lightblue;
 }
